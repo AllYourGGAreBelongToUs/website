@@ -3,9 +3,9 @@ jobs:
   build:
     working_directory: ~/circulate
     docker:
-      - image: rocker/verse:latest
+      - image: rocker/geospatial:latest
     steps:
       - checkout
       - run: echo "hello world"
-      - run: install2.r ggalt
+      - run: install2.r -e ggalt
       - run: scripts/generate_Rmd.R ggalt
