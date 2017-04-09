@@ -7,3 +7,5 @@ jobs:
     steps:
       - checkout
       - run: echo "hello world"
+      - install2.r ggalt
+      - scripts/generate_Rmd.R ggalt
