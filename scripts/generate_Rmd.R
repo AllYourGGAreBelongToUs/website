@@ -6,7 +6,7 @@ doc <- 'Usage: generateRmd.r [-o DIR] PACKAGE
 
 -o --outdir DIR  directory to put Rmds [default: docs]'
 
-opts    <- docopt::docopt(doc)
+opts <- docopt::docopt(doc)
 
 #----------------------------
 
@@ -100,6 +100,6 @@ write_Rmd <- function(Rd, outdir) {
 
 ## Main --------
 
-for(Rd in load_RdDB(pkg)) {
+for(Rd in load_RdDB(opts$PACKAGE)) {
   write_Rmd(Rd, outdir)
 }
