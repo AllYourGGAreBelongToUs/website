@@ -3,21 +3,20 @@ jobs:
   build:
     working_directory: ~/circulate
     docker:
-      - image: rocker/geospatial:latest
+      - image: AllYourGGAreBelongToUs/website:latest
     steps:
       - checkout
       - run:
+          # Basically, the packages are installed when building the Docker image.
+          # However, since this repo uses Automated Build, everytime after adding a new package
+          # to packages.list, it is not installed yet at that time.
           name: Install necessary packages
           command: |
-            install2.r -e \
-              ggalt \
-              ggraph
+            install2.r --error --deps TRUE $(cat packages.list)
       - run:
           name: Generate Rmds
           command: |
-            scripts/generate_Rmd.R --outdir docs\
-              ggalt \
-              ggraph
+            scripts/generate_Rmd.R --outdir docs $(cat packages.list)
       - store_artifacts:
           path: docs
           destination: artifact-file
