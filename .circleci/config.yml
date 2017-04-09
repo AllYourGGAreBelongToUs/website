@@ -12,11 +12,11 @@ jobs:
           # to packages.list, it is not installed yet at that time.
           name: Install necessary packages
           command: |
-            install2.r --error --deps TRUE $(cat packages.list)
+            install2.r --error --deps TRUE $(cat packages.list | scripts/list_not_installed_packages.R)
       - run:
           name: Generate Rmds
           command: |
-            scripts/generate_Rmd.R --outdir Rmds $(cat packages.list | scripts/list_not_installed_packages.R)
+            scripts/generate_Rmd.R --outdir Rmds $(cat packages.list)
       - store_artifacts:
           path: Rmds
           destination: artifact-file
