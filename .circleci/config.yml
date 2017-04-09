@@ -9,3 +9,6 @@ jobs:
       - run: echo "hello world"
       - run: install2.r -e ggalt
       - run: scripts/generate_Rmd.R ggalt
+    - store_artifacts:
+        path: docs
+        destination: artifact-file
