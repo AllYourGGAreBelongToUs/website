@@ -6,7 +6,8 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     openssh-client \
     openjdk-7-jdk \
-    imagemagick
+    imagemagick \
+    libbz2-dev
 
 RUN install2.r \
   --error \
