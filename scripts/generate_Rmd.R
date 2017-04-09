@@ -63,12 +63,7 @@ get_Rd_aliases <- function(Rd) {
 }
 
 get_Rd_title <- function(Rd) {
-  title <- extract_Rd_field(Rd, '\\title')
-  title <- paste0(title, collapse = '')
-  title <- gsub('\n', '\n  ', title)
-  title <- gsub('list\\("(\\w+)"\\)', '\\1', title)
-  
-  title
+  extract_Rd_field(Rd, '\\title')
 }
 
 write_Rmd <- function(Rd, pkg, outdir) {
