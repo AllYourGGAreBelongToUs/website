@@ -1,11 +1,13 @@
-#! /usr/bin/env Rscript
+#!/usr/bin/env r
 
-"
-Usage: generateRmd.r PACKAGE
-" -> doc
+doc <- 'Usage: generateRmd.r [-o DIR] PACKAGE
 
-opts <- docopt::docopt(doc)
-pkgname <- opts[["PACKAGE"]]
+-o --outdir DIR  directory to put Rmds [default: docs]'
+
+opts    <- docopt::docopt(doc)
+
+cat(opts$outdir)
+stop(1)
 
 #----------------------------
 
@@ -32,10 +34,10 @@ library(%s)
 footer <- '
 ```'
 
-library(pkgname, character.only = TRUE, quietly = TRUE)
-RdDB <- tools::Rd_db(pkgname)
+library(opts$PACKAGE, character.only = TRUE, quietly = TRUE)
+RdDB <- tools::Rd_db(opts$PACKAGE)
 
-exported_objnames <- ls(sprintf('package:%s', pkgname))
+exported_objnames <- ls(sprintf('package:%s', opts$PACKAGE))
 
 f <- tempfile()
 
@@ -61,7 +63,7 @@ for(Rdname in names(RdDB)) {
   out <- file.path("_source", sprintf("%s-%s.Rmd", date, rdname))
   
   # header (Note that categories are normalized to dwoncase by Jekyll anyway)
-  cat(sprintf(header_tmpl, title, rdname, strftime(Sys.time(), "%Y-%m-%d"), tolower(pkgname), pkgname, rdname), file = out)
+  cat(sprintf(header_tmpl, title, rdname, strftime(Sys.time(), "%Y-%m-%d"), tolower(opts$PACKAGE), opts$PACKAGE, rdname), file = out)
   
   # codes
   tools::Rd2ex(Rd, f)
