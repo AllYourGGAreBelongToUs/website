@@ -8,7 +8,8 @@ RUN apt-get update \
     openjdk-7-jdk \
     imagemagick \
     libbz2-dev \
-    libcairo2-dev
+    libcairo2-dev \
+    libxt-dev
 
 RUN install2.r \
   --error \
