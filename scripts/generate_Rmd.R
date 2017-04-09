@@ -2,7 +2,7 @@
 
 library(purrr)
 
-doc <- 'Usage: generateRmd.r [-o DIR] PACKAGE
+doc <- 'Usage: generateRmd.r [-o DIR] PACKAGE ...
 
 -o --outdir DIR  directory to put Rmds [default: docs]'
 
@@ -97,6 +97,8 @@ write_Rmd <- function(Rd, pkg, outdir) {
 
 dir.create(opts$outdir, showWarnings = FALSE)
 
-for(Rd in load_RdDB(opts$PACKAGE)) {
-  write_Rmd(Rd, opts$PACKAGE, opts$outdir)
+for (pkg in opts$PACKAGE) {
+  for (Rd in load_RdDB(pkg)) {
+    write_Rmd(Rd, pkg, opts$outdir)
+  }  
 }
