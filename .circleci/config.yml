@@ -9,15 +9,15 @@ jobs:
       - run:
           name: Install necessary packages
           command: |
-          install2.r -e \
-            ggalt \
-            ggraph
+            install2.r -e \
+              ggalt \
+              ggraph
       - run:
           name: Generate Rmds
           command: |
-          scripts/generate_Rmd.R --outdir docs\
-            ggalt \
-            ggraph
+            scripts/generate_Rmd.R --outdir docs\
+              ggalt \
+              ggraph
       - store_artifacts:
           path: docs
           destination: artifact-file
