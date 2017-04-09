@@ -7,4 +7,9 @@ RUN apt-get update \
     openssh-client \
     openjdk-7-jdk
 
-RUN install2.r --error --deps TRUE $(cat packages.list)
+RUN install2.r \
+  --error \
+  --deps TRUE \
+  --repos 'https://cloud.r-project.org/' \
+  --repos 'http://www.bioconductor.org/packages/release/bioc' \
+  $(cat packages.list)
