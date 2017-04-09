@@ -20,3 +20,13 @@ jobs:
       - store_artifacts:
           path: Rmds
           destination: artifact-file
+      - deploy:
+          name: Deploy to AllYourGGAreBelongToUs.github.io
+          command: |
+            git clone https://github.com/AllYourGGAreBelongToUs/AllYourGGAreBelongToUs.github.io /tmp/AYB
+            mv Rmds/ /tmp/AYB
+            git config user.name "Hiroaki Yutani (via CircleCI)"
+            git config user.email "yutani.ini@gmail.com"
+            cd /tmp/AYB
+            git commit -am "update Rmds"
+            git push origin master
