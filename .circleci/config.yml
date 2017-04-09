@@ -23,6 +23,7 @@ jobs:
       - deploy:
           name: Deploy to AllYourGGAreBelongToUs.github.io
           command: |
+            which ssh
             git clone git@github.com:AllYourGGAreBelongToUs/AllYourGGAreBelongToUs.github.io.git /tmp/AYB
             mv Rmds/ /tmp/AYB
             git config --global user.name "Hiroaki Yutani"
