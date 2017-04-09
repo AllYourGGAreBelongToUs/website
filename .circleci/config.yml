@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/circulate
     docker:
-      - image: AllYourGGAreBelongToUs/website:latest
+      - image: allyourggarebelongtous/website:latest
     steps:
       - checkout
       - run:
