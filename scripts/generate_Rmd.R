@@ -8,9 +8,6 @@ doc <- 'Usage: generateRmd.r [-o DIR] PACKAGE
 
 opts    <- docopt::docopt(doc)
 
-cat(opts$outdir)
-stop(1)
-
 #----------------------------
 
 header_tmpl <- '---
