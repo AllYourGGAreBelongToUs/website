@@ -7,7 +7,8 @@ RUN apt-get update \
     openssh-client \
     openjdk-7-jdk \
     imagemagick \
-    libbz2-dev
+    libbz2-dev \
+    libcairo2-dev
 
 RUN install2.r \
   --error \
