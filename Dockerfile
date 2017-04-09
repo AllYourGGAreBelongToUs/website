@@ -5,7 +5,8 @@ COPY packages.list packages.list
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     openssh-client \
-    openjdk-7-jdk
+    openjdk-7-jdk \
+    imagemagick
 
 RUN install2.r \
   --error \
