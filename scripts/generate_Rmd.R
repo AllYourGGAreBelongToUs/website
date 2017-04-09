@@ -100,6 +100,8 @@ write_Rmd <- function(Rd, outdir) {
 
 ## Main --------
 
+dir.create(opts$outdir, showWarnings = FALSE)
+
 for(Rd in load_RdDB(opts$PACKAGE)) {
   write_Rmd(Rd, opts$outdir)
 }
