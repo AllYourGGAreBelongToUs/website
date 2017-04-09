@@ -4,7 +4,7 @@ library(purrr)
 
 doc <- 'Usage: generateRmd.r [-o DIR] PACKAGE ...
 
--o --outdir DIR  directory to put Rmds [default: docs]'
+-o --outdir DIR  directory to put Rmds [default: Rmds]'
 
 opts <- docopt::docopt(doc)
 
