@@ -101,5 +101,5 @@ write_Rmd <- function(Rd, outdir) {
 ## Main --------
 
 for(Rd in load_RdDB(opts$PACKAGE)) {
-  write_Rmd(Rd, outdir)
+  write_Rmd(Rd, opts$outdir)
 }
