@@ -3,8 +3,7 @@ jobs:
   build:
     working_directory: ~/circulate
     docker:
-      - image: rocker/geospatial:latest
-      #- image: allyourggarebelongtous/website:latest
+      - image: allyourggarebelongtous/website:latest
     steps:
       - checkout
       - run:
