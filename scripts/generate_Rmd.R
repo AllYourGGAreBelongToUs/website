@@ -15,9 +15,6 @@ title: |
 %s
 rdname: %s
 date: %s
-output: html_document
-images:
-FRONTFOMATTER_IMAGES
 ---
 
 ```{r, echo = FALSE, message = FALSE}
@@ -39,10 +36,6 @@ load_RdDB <- function(pkg) {
   
   # discard if there is no Examples section
   RdDB <- keep(RdDB, ~ any(tools:::RdTags(.) == '\\examples'))
-  
-  # skip if the Rd is not related to exported objects
-  exported_objnames <- ls(sprintf('package:%s', pkg))
-  RdDB <- keep(RdDB, ~ any(get_Rd_aliases(.) %in% exported_objnames))
   
   RdDB
 }

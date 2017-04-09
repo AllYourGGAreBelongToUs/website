@@ -22,15 +22,13 @@ jobs:
           destination: artifact-file
       - deploy:
           name: Deploy to AllYourGGAreBelongToUs.github.io
+          branch: master
           command: |
-            apt-get install -y --no-install-recommends openssh-client
-            mkdir ~/.ssh/
-            echo "StrictHostKeyChecking no" >> ~/.ssh/config
             git clone git@github.com:AllYourGGAreBelongToUs/AllYourGGAreBelongToUs.github.io.git /tmp/AYB
             mv Rmds/ /tmp/AYB
             git config --global user.name "Hiroaki Yutani"
             git config --global user.email "yutani.ini@gmail.com"
             cd /tmp/AYB
             git add Rmds/
-            git commit -m "update Rmds"
+            git commit -m "update Rmds [ci skip]"
             git push origin master
