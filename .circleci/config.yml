@@ -25,7 +25,7 @@ jobs:
           command: |
             git clone https://github.com/AllYourGGAreBelongToUs/AllYourGGAreBelongToUs.github.io /tmp/AYB
             mv Rmds/ /tmp/AYB
-            git config --global user.name "Hiroaki Yutani (via CircleCI)"
+            git config --global user.name "Hiroaki Yutani"
             git config --global user.email "yutani.ini@gmail.com"
             cd /tmp/AYB
             git add Rmds/
