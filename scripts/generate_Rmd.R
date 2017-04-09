@@ -71,7 +71,7 @@ get_Rd_title <- function(Rd) {
   title
 }
 
-write_Rmd <- function(Rd, outdir) {
+write_Rmd <- function(Rd, pkg, outdir) {
   title <- get_Rd_title(Rd)
   rdname <- extract_Rd_field(Rd, '\\name')
   
@@ -103,5 +103,5 @@ write_Rmd <- function(Rd, outdir) {
 dir.create(opts$outdir, showWarnings = FALSE)
 
 for(Rd in load_RdDB(opts$PACKAGE)) {
-  write_Rmd(Rd, opts$outdir)
+  write_Rmd(Rd, opts$PACKAGE, opts$outdir)
 }
