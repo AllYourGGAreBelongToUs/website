@@ -2,7 +2,7 @@
 
 library(purrr)
 
-doc <- 'Usage: generateRmd.r [-o DIR] PACKAGE ...
+doc <- 'Usage: generate_Rmd.R [-o DIR] PACKAGE ...
 
 -o --outdir DIR  directory to put Rmds [default: Rmds]'
 

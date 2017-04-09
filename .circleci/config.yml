@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Generate Rmds
           command: |
-            scripts/generate_Rmd.R --outdir Rmds $(cat packages.list)
+            scripts/generate_Rmd.R --outdir Rmds $(cat packages.list | scripts/list_not_installed_packages.R)
       - store_artifacts:
           path: Rmds
           destination: artifact-file
