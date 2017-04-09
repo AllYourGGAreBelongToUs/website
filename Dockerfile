@@ -9,3 +9,9 @@ RUN apt-get update \
     imagemagick \
     libbz2-dev
 
+RUN install2.r \
+  --error \
+  --deps TRUE \
+  --repos 'https://cloud.r-project.org/' \
+  --repos 'http://www.bioconductor.org/packages/release/bioc' \
+  $(cat packages.list)
