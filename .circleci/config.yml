@@ -1,1 +1,9 @@
 version: 2
+jobs:
+  build:
+    working_directory: ~/circulate
+    docker:
+      - image: rocker/verse:latest
+    steps:
+      - checkout
+      - run: echo "hello world"
