@@ -97,7 +97,7 @@ write_Rmd <- function(Rd, pkg, outdir) {
 
 
 for (pkg in opts$PACKAGE) {
-  outdir <- file.path(opts$outdir, opts$PACKAGE)
+  outdir <- file.path(opts$outdir, pkg)
   dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
   
   for (Rd in load_RdDB(pkg)) {
